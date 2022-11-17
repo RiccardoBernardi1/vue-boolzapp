@@ -6,7 +6,6 @@ createApp({
             activeContact:0,
             newMessage:"",
             searchInput:"",
-            newDate: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
             contacts: [
                 {
                     name: 'Michele',
@@ -178,7 +177,7 @@ createApp({
         },
         addNewMessage(){
             const newObjMessage={
-                date: this.newDate,
+                date: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
                 message: this.newMessage,
                 status: 'sent'
             }
@@ -186,7 +185,7 @@ createApp({
             this.newMessage="";
             setTimeout(()=>{
                 const newMessaggeAnswer={
-                    date: this.newDate,
+                    date: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
                     message: "ok",
                     status: 'received'
                 }

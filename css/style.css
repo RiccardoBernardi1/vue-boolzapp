@@ -40,7 +40,7 @@ header{
     display: flex;
     justify-content: space-between;
     width: 35%;
-    border-right: .125rem solid #E9EBEB;
+    border-right: .125rem solid grey;
     padding: .625rem;
 }
 .user{

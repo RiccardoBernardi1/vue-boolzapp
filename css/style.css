@@ -37,7 +37,7 @@ header img{
 .header-aside{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 35%;
     border-right: .125rem solid black;
     padding: .625rem;
 }
@@ -56,7 +56,7 @@ header img{
     display: flex;
     justify-content: space-between;
     padding: .625rem;
-    width: 70%;
+    width: 65%;
 }
 .header-contact{
     display: flex;
@@ -70,8 +70,8 @@ header img{
 }
 /* ASIDE */
 aside{
-    background-color: red;
-    width: 30%;
+    background-color: white;
+    width: 35%;
     display: flex;
     flex-direction: column;
 }
@@ -90,8 +90,29 @@ aside{
     margin-right: .5rem;
     padding: .75rem;
 }
+/* cerca contatto */
+.search{
+    display: flex;
+    padding: .3125rem;
+}
+.search-icon{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .1875rem solid grey;
+    min-height: 2.1875rem;
+}
+.search input{
+    width: 85%;
+    min-height: 2.1875rem;
+    border-top: .1875rem solid grey;
+    border-right: .1875rem solid grey;
+    border-bottom: .1875rem solid grey;
+    padding: .3125rem;
+}
 /* MAIN */
 main{
     background-color: green;
-    width: 70%;
+    width: 65%;
 }

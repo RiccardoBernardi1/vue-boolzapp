@@ -94,25 +94,11 @@
                     <!-- lista messaggi -->
                     <div class="messages">
                         <div class="messages-container">
-                            <div class="message-container">
-                                <div class="message sent">
-                                    Ricordati di stendere i panni
+                            <div class="message-container" v-for="message in contacts[0].messages">
+                                <div class="message" :class="message.status">
+                                    {{message.message}}
                                     <span class="last">12:00</span>
                                 </div>
-                                
-                            </div>
-                            <div class="message-container">
-                                <div class="message sent">
-                                    Hai portato a spasso il cane?
-                                    <span class="last">12:00</span>
-                                </div>
-                            </div>
-                            <div class="message-container">
-                                <div class="message received">
-                                    Tutto fatto
-                                    <span class="last">12:00</span>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>

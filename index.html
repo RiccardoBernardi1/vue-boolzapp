@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Boolzapp</title>
@@ -37,7 +40,7 @@
                         <img class="avatar-image" src="img/avatar_1.jpg" alt="user image">
                         <div class="text">
                             <div class="name">Michele</div>
-                            <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                            <div class="last">Ultimo accesso oggi alle 12:00</div>
                         </div>
                     </div>
                     <!-- /immagine, nome e ultimo accesso contatto visualizzato -->
@@ -79,82 +82,11 @@
                                 <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
                                 <div>
                                     <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
+                                    <span class="last">Ultimo messaggio inviato</span>
                                 </div>
                             </div>
-                            <div class="last-message">12:00</div>
+                            <div class="last">12:00</div>
                         </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        <div class="contact h-80">
-                            <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
-                                <div>
-                                    <div class="contact-name">Michele</div>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-                            </div>
-                            <div class="last-message">12:00</div>
-                        </div>
-                        
                     </div>
                     <!-- /lista contatti -->
                 </aside>
@@ -163,13 +95,24 @@
                     <div class="messages">
                         <div class="messages-container">
                             <div class="message-container">
-                                <div class="message sent">Ricordati di stendere i panni</div>
+                                <div class="message sent">
+                                    Ricordati di stendere i panni
+                                    <span class="last">12:00</span>
+                                </div>
+                                
                             </div>
                             <div class="message-container">
-                                <div class="message sent">Hai portato a spasso il cane?</div>
+                                <div class="message sent">
+                                    Hai portato a spasso il cane?
+                                    <span class="last">12:00</span>
+                                </div>
                             </div>
                             <div class="message-container">
-                                <div class="message received">Tutto fatto</div>
+                                <div class="message received">
+                                    Tutto fatto
+                                    <span class="last">12:00</span>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -21,12 +21,14 @@
     max-width: 3.125rem;
     border-radius: 100%;
     padding-right: .5rem;
+    object-fit: cover;
 }
 /* BODY */
 body{
     display: flex;
     background-image: linear-gradient(to top,#D9DBD4 80%, #009688 20%);
     height: 100vh;
+    font-family: 'Lato', sans-serif;
 }
 /* HEADER */
 header{
@@ -50,6 +52,7 @@ header{
     justify-content: space-around;
     align-items: center;
     min-width: 20%;
+    color: #B1B1B1;
 }
 /* parte destra header */
 .header-right{
@@ -67,6 +70,11 @@ header{
     justify-content: space-around;
     align-items: center;
     min-width: 10%;
+    color: #B1B1B1;
+}
+.last{
+    color: #B1B1B1;
+    font-size: .875rem;
 }
 /* ASIDE */
 aside{
@@ -90,6 +98,9 @@ aside{
     color: #8EDAFC;
     margin-right: .5rem;
     padding: .75rem;
+}
+.notification a{
+    color: black;
 }
 /* cerca contatto */
 .search{
@@ -159,6 +170,13 @@ main{
     border-radius: .625rem;
     padding: .9375rem .625rem;
     min-width: 18.75rem;
+    position: relative;
+}
+.message span{
+    position: absolute;
+    right: .625rem;
+    bottom: .3125rem;
+    font-size: .75rem;
 }
 .sent{
     background-color: #D5F9BA;

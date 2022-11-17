@@ -4,8 +4,41 @@
     margin: 0;
     padding: 0;
 }
+/* COMMON */
+.container{
+    width: 80rem;
+    margin: auto;
+    height: 95%;
+}
 /* BODY */
 body{
+    display: flex;
     background-image: linear-gradient(to top,#D9DBD4 80%, #009688 20%);
     height: 100vh;
+}
+/* HEADER */
+header{
+    background-color: #D9DBD4;
+}
+.header-aside{
+    display: flex;
+    justify-content: space-between;
+    max-width: 30%;
+    border-right: .125rem solid black;
+    padding: .625rem;
+}
+.user{
+    display: flex;
+    align-items: center;
+}
+.user img{
+    max-width: 3.125rem;
+    border-radius: 100%;
+    padding-right: .5rem;
+}
+.header-left-icons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 20%;
 }

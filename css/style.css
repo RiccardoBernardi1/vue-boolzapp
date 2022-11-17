@@ -10,6 +10,13 @@
     margin: auto;
     height: 95%;
 }
+.container-main-aside{
+    display: flex;
+    height: calc(95vh - 3.875rem);
+}
+.h-80{
+    min-height: 5rem;
+}
 /* BODY */
 body{
     display: flex;
@@ -21,6 +28,12 @@ header{
     background-color: #D9DBD4;
     display: flex;
 }
+header img{
+    max-width: 3.125rem;
+    border-radius: 100%;
+    padding-right: .5rem;
+}
+/* parte sinistra header */
 .header-aside{
     display: flex;
     justify-content: space-between;
@@ -28,26 +41,22 @@ header{
     border-right: .125rem solid black;
     padding: .625rem;
 }
-.header-right{
-    display: flex;
-    justify-content: space-between;
-    padding: .625rem;
-    width: 70%;
-}
 .user{
     display: flex;
     align-items: center;
-}
-header img{
-    max-width: 3.125rem;
-    border-radius: 100%;
-    padding-right: .5rem;
 }
 .header-left-icons{
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-width: 20%;
+}
+/* parte destra header */
+.header-right{
+    display: flex;
+    justify-content: space-between;
+    padding: .625rem;
+    width: 70%;
 }
 .header-contact{
     display: flex;
@@ -58,4 +67,31 @@ header img{
     justify-content: space-around;
     align-items: center;
     min-width: 10%;
+}
+/* ASIDE */
+aside{
+    background-color: red;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+/* attiva notifiche */
+.notification{
+    background-color: #8EDAFC;
+    display: flex;
+    padding: .625rem;
+    align-items: center;
+}
+.bell{
+    font-size: 1.25rem;
+    border-radius: 100%;
+    background-color: white;
+    color: #8EDAFC;
+    margin-right: .5rem;
+    padding: .75rem;
+}
+/* MAIN */
+main{
+    background-color: green;
+    width: 70%;
 }

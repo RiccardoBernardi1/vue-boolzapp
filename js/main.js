@@ -198,12 +198,9 @@ createApp({
                 const nameToCheck=contact.name.slice(0,this.searchInput.length);
                 if(this.searchInput.length===0){
                     contact.visible=true;
-                    console.log(1)
                 }else if(nameToCheck.toUpperCase()===this.searchInput.toUpperCase()){
-                    console.log(2)
                     contact.visible=true;
                 }else{
-                    console.log(3)
                     contact.visible=false;
                 }
             });

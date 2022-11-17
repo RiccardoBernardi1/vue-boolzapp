@@ -97,7 +97,7 @@
                             <div class="message-container" v-for="message in contacts[activeContact].messages">
                                 <div class="message" :class="message.status">
                                     {{message.message}}
-                                    <span class="last">12:00</span>
+                                    <span class="last">{{message.date}}</span>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                         <div class="emoji">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addNewMessage" v-model="newMessage" required>
                         <div class="audio">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

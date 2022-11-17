@@ -135,6 +135,7 @@ aside{
     justify-content: space-between;
     width: 100%;
     border-top: 2px solid #E9EBEB;
+    cursor: pointer;
 }
 .contact-info{
     display: flex;
@@ -168,7 +169,7 @@ main{
 }
 .message{
     border-radius: .625rem;
-    padding: .9375rem .625rem;
+    padding: 1.25rem .625rem;
     min-width: 18.75rem;
     position: relative;
 }

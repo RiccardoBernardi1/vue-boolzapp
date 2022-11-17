@@ -4,6 +4,8 @@ createApp({
     data(){
         return{
             activeContact:0,
+            newMessage:"",
+            newDate: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
             contacts: [
                 {
                     name: 'Michele',
@@ -172,6 +174,15 @@ createApp({
     methods:{
         changeActiveContact(i){
             this.activeContact=i;
+        },
+        addNewMessage(){
+            const newObjMessage={
+                date: this.newDate,
+                message: this.newMessage,
+                status: 'sent'
+            }
+            this.contacts[this.activeContact].messages.push(newObjMessage);
+            this.newMessage="";
         }
     }
 }).mount("#app");

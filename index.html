@@ -77,11 +77,11 @@
                     <!-- /cerca contatto -->
                     <!-- lista contatti -->
                     <div class="contacts">
-                        <div class="contact h-80 active">
+                        <div class="contact h-80" v-for="contact in contacts">
                             <div class="contact-info">
-                                <img class="avatar-image" src="img/avatar_1.jpg" alt="Avatar Michele">
+                                <img class="avatar-image" :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar Michele">
                                 <div>
-                                    <div class="contact-name">Michele</div>
+                                    <div class="contact-name">{{contact.name}}</div>
                                     <span class="last">Ultimo messaggio inviato</span>
                                 </div>
                             </div>

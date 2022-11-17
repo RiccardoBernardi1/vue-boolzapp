@@ -19,19 +19,26 @@ body{
 /* HEADER */
 header{
     background-color: #D9DBD4;
+    display: flex;
 }
 .header-aside{
     display: flex;
     justify-content: space-between;
-    max-width: 30%;
+    width: 30%;
     border-right: .125rem solid black;
     padding: .625rem;
+}
+.header-right{
+    display: flex;
+    justify-content: space-between;
+    padding: .625rem;
+    width: 70%;
 }
 .user{
     display: flex;
     align-items: center;
 }
-.user img{
+header img{
     max-width: 3.125rem;
     border-radius: 100%;
     padding-right: .5rem;
@@ -41,4 +48,14 @@ header{
     justify-content: space-around;
     align-items: center;
     min-width: 20%;
+}
+.header-contact{
+    display: flex;
+    align-items: center;
+}
+.header-right-icons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 10%;
 }

@@ -3,6 +3,7 @@ const {createApp}=Vue;
 createApp({
     data(){
         return{
+            activeContact:0,
             contacts: [
                 {
                     name: 'Michele',
@@ -166,6 +167,11 @@ createApp({
                     ],
                 }
             ]
+        }
+    },
+    methods:{
+        changeActiveContact(i){
+            this.activeContact=i;
         }
     }
 }).mount("#app");

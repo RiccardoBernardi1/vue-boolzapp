@@ -5,6 +5,7 @@ createApp({
         return{
             activeContact:0,
             newMessage:"",
+            searchInput:"",
             newDate: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
             contacts: [
                 {
@@ -191,6 +192,21 @@ createApp({
                 }
                 this.contacts[this.activeContact].messages.push(newMessaggeAnswer);
             },1000);
+        },
+        searchContact(){
+            this.contacts.forEach(contact => {
+                const nameToCheck=contact.name.slice(0,this.searchInput.length);
+                if(this.searchInput.length===0){
+                    contact.visible=true;
+                    console.log(1)
+                }else if(nameToCheck.toUpperCase()===this.searchInput.toUpperCase()){
+                    console.log(2)
+                    contact.visible=true;
+                }else{
+                    console.log(3)
+                    contact.visible=false;
+                }
+            });
         }
     }
 }).mount("#app");

@@ -17,6 +17,11 @@
 .h-80{
     min-height: 5rem;
 }
+.avatar-image{
+    max-width: 3.125rem;
+    border-radius: 100%;
+    padding-right: .5rem;
+}
 /* BODY */
 body{
     display: flex;
@@ -28,17 +33,12 @@ header{
     background-color: #D9DBD4;
     display: flex;
 }
-header img{
-    max-width: 3.125rem;
-    border-radius: 100%;
-    padding-right: .5rem;
-}
 /* parte sinistra header */
 .header-aside{
     display: flex;
     justify-content: space-between;
     width: 35%;
-    border-right: .125rem solid black;
+    border-right: .125rem solid #E9EBEB;
     padding: .625rem;
 }
 .user{
@@ -74,6 +74,7 @@ aside{
     width: 35%;
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 /* attiva notifiche */
 .notification{
@@ -100,16 +101,39 @@ aside{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: .1875rem solid grey;
+    border: .1875rem solid #E9EBEB;
     min-height: 2.1875rem;
 }
 .search input{
     width: 85%;
     min-height: 2.1875rem;
-    border-top: .1875rem solid grey;
-    border-right: .1875rem solid grey;
-    border-bottom: .1875rem solid grey;
+    border-top: .1875rem solid #E9EBEB;
+    border-right: .1875rem solid #E9EBEB;
+    border-bottom: .1875rem solid #E9EBEB;
     padding: .3125rem;
+}
+/* lista contatti */
+.contacts{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.contact{
+    padding: .625rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 2px solid #E9EBEB;
+}
+.contact-info{
+    display: flex;
+}
+.contact img{
+    height: 3.75rem;
+    max-width: 3.75rem;
+}
+.active{
+    background-color: #E9EBEB;
 }
 /* MAIN */
 main{

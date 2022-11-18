@@ -96,7 +96,7 @@
                         <div class="messages-container">
                             <div class="message-container" v-for="message in contacts[activeContact].messages">
                                 <div class="message" :class="message.status">
-                                    {{message.message}}
+                                    <div>{{message.message}}</div>
                                     <span class="last">{{message.date}}</span>
                                 </div>
                             </div>

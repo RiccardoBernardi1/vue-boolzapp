@@ -173,7 +173,11 @@ main{
     border-radius: .625rem;
     padding: 1.25rem .625rem;
     min-width: 18.75rem;
+    max-width: 18.75rem;
     position: relative;
+}
+.message div{
+    word-wrap: break-word;
 }
 .message span{
     position: absolute;

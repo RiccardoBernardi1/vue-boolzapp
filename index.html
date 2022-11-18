@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Boolzapp</title>
 </head>
@@ -82,7 +84,8 @@
                                 <img class="avatar-image" :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
                                 <div>
                                     <div class="contact-name">{{contact.name}}</div>
-                                    <span class="last">Ultimo messaggio inviato</span>
+                                    <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
+                                    <span class="last" v-else>Ultimo messaggio ricevuto:</span>
                                     <div>{{contact.messages[contact.messages.length-1].message}}</div>
                                 </div>
                             </div>
@@ -98,7 +101,7 @@
                             <div class="message-container" v-for="(message,index) in contacts[activeContact].messages">
                                 <div class="message" :class="message.status">
                                     <div>{{message.message}}</div>
-                                    <span class="last">{{message.date}}</span>
+                                    <span class="last">{{getDate(message.date)}}</span>
                                     <div class="menu d-none" :id="index">
                                         <div>Message info</div>
                                         <div>Delete message</div>

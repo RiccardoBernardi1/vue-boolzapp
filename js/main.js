@@ -202,7 +202,13 @@ createApp({
                     contact.visible=false;
                 }
             });
-        },
-        
+        },   
+        getDate(date){
+            console.log(date)
+            return moment(date, "DD/MM/YYYY hh:mm:ss").fromNow();
+        }
+    },
+    created(){
+        moment.locale("it")
     }
 }).mount("#app");

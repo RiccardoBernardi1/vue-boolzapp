@@ -43,7 +43,7 @@
                         <img class="avatar-image" :src="`img/avatar${contacts[activeContact].avatar}.jpg`" alt="user image">
                         <div class="text">
                             <div class="name">{{contacts[activeContact].name}}</div>
-                            <div class="last">Ultimo accesso oggi alle 12:00</div>
+                            <div class="last">Ultimo accesso {{getDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}</div>
                         </div>
                     </div>
                     <!-- /immagine, nome e ultimo accesso contatto visualizzato -->
@@ -90,7 +90,7 @@
                                     <div>{{contact.messages[contact.messages.length-1].message}}</div>
                                 </div>
                             </div>
-                            <div class="last">12:00</div>
+                            <div class="last">{{getDate(contact.messages[contact.messages.length-1].date)}}</div>
                         </div>
                     </div>
                     <!-- /lista contatti -->

@@ -202,6 +202,7 @@ createApp({
                     contact.visible=false;
                 }
             });
-        }
+        },
+        
     }
 }).mount("#app");

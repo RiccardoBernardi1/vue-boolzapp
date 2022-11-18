@@ -194,10 +194,9 @@ createApp({
         },
         searchContact(){
             this.contacts.forEach(contact => {
-                const nameToCheck=contact.name.slice(0,this.searchInput.length);
                 if(this.searchInput.length===0){
                     contact.visible=true;
-                }else if(nameToCheck.toUpperCase()===this.searchInput.toUpperCase()){
+                }else if(contact.name.toUpperCase().includes(this.searchInput.toUpperCase())){
                     contact.visible=true;
                 }else{
                     contact.visible=false;

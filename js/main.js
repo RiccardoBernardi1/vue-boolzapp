@@ -206,6 +206,9 @@ createApp({
         getDate(date){
             console.log(date)
             return moment(date).fromNow();
+        },
+        deleteMessage(i){
+            this.contacts[this.activeContact].messages.splice(i,1);
         }
     },
     created(){

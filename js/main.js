@@ -177,7 +177,7 @@ createApp({
         },
         addNewMessage(){
             const newObjMessage={
-                date: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
+                date: new Date,
                 message: this.newMessage,
                 status: 'sent'
             }
@@ -185,7 +185,7 @@ createApp({
             this.newMessage="";
             setTimeout(()=>{
                 const newMessaggeAnswer={
-                    date: new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds(),
+                    date: new Date,
                     message: "ok",
                     status: 'received'
                 }
@@ -205,10 +205,10 @@ createApp({
         },   
         getDate(date){
             console.log(date)
-            return moment(date, "DD/MM/YYYY hh:mm:ss").fromNow();
+            return moment(date).fromNow();
         }
     },
     created(){
-        moment.locale("it")
+        moment.locale("it");
     }
 }).mount("#app");

@@ -6,6 +6,7 @@ createApp({
             activeContact:0,
             newMessage:"",
             searchInput:"",
+            chuck:"",
             contacts: [
                 {
                     name: 'Michele',
@@ -35,12 +36,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '20/07/2020 16:30:00',
+                            date: '10/07/2020 16:30:00',
                             message: 'Ciao come stai?',
                             status: 'sent'
                         },
                         {
-                            date: '20/06/2020 16:30:55',
+                            date: '10/06/2020 16:30:55',
                             message: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
@@ -57,12 +58,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '28/07/2020 10:10:40',
+                            date: '10/07/2020 10:10:40',
                             message: 'La Marianna va in campagna',
                             status: 'received'
                         },
                         {
-                            date: '28/08/2020 10:20:10',
+                            date: '10/08/2020 10:20:10',
                             message: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent'
                         },
@@ -176,21 +177,28 @@ createApp({
             this.activeContact=i;
         },
         addNewMessage(){
-            const newObjMessage={
-                date: new Date,
-                message: this.newMessage,
-                status: 'sent'
-            }
-            this.contacts[this.activeContact].messages.push(newObjMessage);
-            this.newMessage="";
-            setTimeout(()=>{
-                const newMessaggeAnswer={
+            if(this.newMessage.length>0){
+                const newObjMessage={
                     date: new Date,
-                    message: "ok",
-                    status: 'received'
+                    message: this.newMessage,
+                    status: 'sent'
                 }
-                this.contacts[this.activeContact].messages.push(newMessaggeAnswer);
-            },1000);
+                this.contacts[this.activeContact].messages.push(newObjMessage);
+                this.newMessage="";
+                setTimeout(()=>{
+                    axios.get('https://api.chucknorris.io/jokes/random')
+                    .then((response)=> {
+                        this.chuck=response.data.value;
+                        console.log(response.data.value)
+                        const newMessaggeAnswer={
+                            date: new Date,
+                            message: this.chuck,
+                            status: 'received'
+                        }
+                        this.contacts[this.activeContact].messages.push(newMessaggeAnswer);
+                    });
+                },1000);
+            } 
         },
         searchContact(){
             this.contacts.forEach(contact => {
@@ -204,7 +212,6 @@ createApp({
             });
         },   
         getDate(date){
-            console.log(date)
             return moment(date).fromNow();
         },
         deleteMessage(i){
@@ -212,6 +219,6 @@ createApp({
         }
     },
     created(){
-        moment.locale("it");
+        moment.locale("it");   
     }
 }).mount("#app");

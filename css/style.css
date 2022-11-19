@@ -140,6 +140,7 @@ aside{
     justify-content: space-between;
     width: 100%;
     cursor: pointer;
+    overflow-y: hidden;
 }
 .contact:not(:last-child){
     border-bottom: 2px solid #E9EBEB;

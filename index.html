@@ -106,7 +106,7 @@
                                     <span class="last">{{getDate(message.date)}}</span>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a class="dropdown-item" href="#">Info messaggio</a></li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)" v-if="message.status==='sent'">Cancella messaggio</a></li>
                                     </ul>
                                 </div>
                             </div>

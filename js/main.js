@@ -169,7 +169,7 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
         }
     },
     methods:{
@@ -215,7 +215,12 @@ createApp({
             return moment(date).fromNow();
         },
         deleteMessage(i){
-            this.contacts[this.activeContact].messages.splice(i,1);
+            if(this.contacts[this.activeContact].messages[i].status==="sent"){
+                this.contacts[this.activeContact].messages.splice(i,1);
+            }
+        },
+        getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
         }
     },
     created(){

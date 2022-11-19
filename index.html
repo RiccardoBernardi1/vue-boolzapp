@@ -81,14 +81,14 @@
                     <!-- /cerca contatto -->
                     <!-- lista contatti -->
                     <div class="contacts">
-                        <div class="contact h-80" :class="activeContact===index ? 'active':''" v-for="(contact,index) in contacts" @click="changeActiveContact(index)" v-show="contact.visible||searchInput=='' ">
+                        <div class="contact" :class="activeContact===index ? 'active':''" v-for="(contact,index) in contacts" @click="changeActiveContact(index)" v-show="contact.visible||searchInput=='' ">
                             <div class="contact-info">
                                 <img class="avatar-image" :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
                                 <div>
                                     <div class="contact-name">{{contact.name}}</div>
                                     <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
                                     <span class="last" v-else>Ultimo messaggio ricevuto:</span>
-                                    <div>{{contact.messages[contact.messages.length-1].message}}</div>
+                                    <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
                                 </div>
                             </div>
                             <div class="last">{{getDate(contact.messages[contact.messages.length-1].date)}}</div>

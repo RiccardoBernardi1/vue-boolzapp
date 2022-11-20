@@ -25,7 +25,7 @@
                     <!-- immagine e nome utente -->
                     <div class="user">
                         <img src="img/avatar_2.jpg" class="avatar-image" alt="user image">
-                        <span id="user-name">Riccardo</span>
+                        <span class="name">Riccardo</span>
                     </div>
                     <!-- /immagine e nome utente -->
                     <!-- icone parte sinistra header -->
@@ -73,10 +73,10 @@
                     <!-- /attiva notifiche -->
                     <!-- cerca contatto -->
                     <div class="search">
-                        <button class="search-icon">
+                        <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchInput" @keyup="searchContact">
+                        </div>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchInput" @keyup="searchContact" >
                     </div>
                     <!-- /cerca contatto -->
                     <!-- lista contatti -->
@@ -85,7 +85,7 @@
                             <div class="contact-info">
                                 <img class="avatar-image" :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
                                 <div>
-                                    <div class="contact-name">{{contact.name}}</div>
+                                    <div class="name">{{contact.name}}</div>
                                     <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
                                     <span class="last" v-else>Ultimo messaggio ricevuto:</span>
                                     <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>

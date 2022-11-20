@@ -247,7 +247,7 @@ createApp({
                         console.log(response.data.value)
                         const newMessaggeAnswer={
                             date: new Date,
-                            message: this.answers[this.getRndInteger(0, this.answers.length)],
+                            message: this.chuck,
                             status: 'received'
                         }
                         this.contacts[this.activeContact].messages.push(newMessaggeAnswer);

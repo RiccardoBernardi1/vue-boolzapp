@@ -344,6 +344,9 @@ main{
 .welcome-message .text{
     max-width: 70%;
 }
+.deleted{
+    color: #B1B1B1;
+}
 /* input nuovo messaggio */
 .new-message{
     min-height: 4.375rem;

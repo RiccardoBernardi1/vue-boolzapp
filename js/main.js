@@ -13,6 +13,7 @@ createApp({
             userInfo:"...",
             dNone:"",
             inputNotFocussed:true,
+            deleted:false,
             contacts: [
                 {
                     name: 'Michele',
@@ -275,8 +276,7 @@ createApp({
             return moment(date).fromNow();
         },
         deleteMessage(i){
-            document.getElementById(`deleted${i}`).classList.remove("d-none");
-            document.getElementById(`text${i}`).classList.add("d-none");
+            this.contacts[this.activeContact].messages.splice(i,1);
         },
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min) ) + min;

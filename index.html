@@ -68,12 +68,15 @@
                                 <img class="avatar-image" :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
                                 <div>
                                     <div class="name">{{contact.name}}</div>
-                                    <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
-                                    <span class="last" v-else>Ultimo messaggio ricevuto:</span>
-                                    <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
+                                    <div class="last-message-text" v-if="contact.messages.length>0">
+                                        <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
+                                        <span class="last" v-else>Ultimo messaggio ricevuto:</span>
+                                        <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
+                                    </div>
+                                    <div v-else class="last">Nessun messaggio nella chat</div>
                                 </div>
                             </div>
-                            <div class="last">{{getDate(contact.messages[contact.messages.length-1].date)}}</div>
+                            <div class="last" v-if="contact.messages.length>0">{{getDate(contact.messages[contact.messages.length-1].date)}}</div>
                         </div>
                     </div>
                     <!-- /lista contatti -->
@@ -122,7 +125,8 @@
                             <img class="avatar-image" :src="`img/avatar${contacts[activeContact].avatar}.jpg`" alt="user image">
                             <div class="text">
                                 <div class="name">{{contacts[activeContact].name}}</div>
-                                <div class="last">Ultimo accesso {{getDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}</div>
+                                <div class="last" v-if="contacts[activeContact].messages.length>0">Ultimo accesso {{getDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}</div>
+                                <div v-else class="last">Ultimo accesso 2 anni fa</div>
                             </div>
                         </div>
                         <!-- /immagine, nome e ultimo accesso contatto visualizzato -->
@@ -140,13 +144,12 @@
                         <div class="messages-container">
                             <div class="message-container" v-for="(message,index) in contacts[activeContact].messages">
                                 <div class="message" :class="message.status" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div :id="`text${index}`">{{message.message}}</div>
-                                    <div class="deleted d-none" :id="`deleted${index}`" >Messaggio eliminato</div>
+                                    <div>{{message.message}}</div>
                                     <span class="last">{{getDate(message.date)}}</span>
                                     <ul class="dropdown-menu dropdown-menu-end" v-if="message.status==='sent'">
                                         <li>
                                             <div class="dropstart">
-                                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
                                                 <ul class="dropdown-menu padd">
                                                     <li>
                                                         <h5>Data e ora :</h5>
@@ -175,7 +178,7 @@
                                     <ul class="dropdown-menu dropdown-menu-start" v-else>
                                         <li>
                                             <div class="dropend">
-                                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
                                                 <ul class="dropdown-menu padd">
                                                     <li>
                                                         <h5>Data e ora :</h5>
@@ -198,9 +201,7 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a>
-                                        </li>
+                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a></li>
                                     </ul>
                                 </div>
                             </div>

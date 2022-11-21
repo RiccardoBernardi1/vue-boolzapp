@@ -140,7 +140,8 @@
                         <div class="messages-container">
                             <div class="message-container" v-for="(message,index) in contacts[activeContact].messages">
                                 <div class="message" :class="message.status" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div>{{message.message}}</div>
+                                    <div :id="`text${index}`">{{message.message}}</div>
+                                    <div class="deleted d-none" :id="`deleted${index}`" >Messaggio eliminato</div>
                                     <span class="last">{{getDate(message.date)}}</span>
                                     <ul class="dropdown-menu dropdown-menu-end" v-if="message.status==='sent'">
                                         <li>
@@ -169,7 +170,7 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)" v-if="message.status==='sent'">Cancella messaggio</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a></li>
                                     </ul>
                                     <ul class="dropdown-menu dropdown-menu-start" v-else>
                                         <li>
@@ -197,7 +198,9 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)" v-else>Cancella messaggio</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

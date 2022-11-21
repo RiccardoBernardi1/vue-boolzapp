@@ -275,37 +275,28 @@ createApp({
             return moment(date).fromNow();
         },
         deleteMessage(i){
-            if(this.contacts[this.activeContact].messages[i].status==="sent"){
-                this.contacts[this.activeContact].messages.splice(i,1);
-            }
+            document.getElementById(`deleted${i}`).classList.remove("d-none");
+            document.getElementById(`text${i}`).classList.add("d-none");
         },
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min) ) + min;
         },
         overwriteName(){
             if(this.changeNameVisible===true){
-                console.log(this.changeNameVisible)
                 this.changeNameVisible=false;
                 document.querySelector(".user-name").classList.add("border-bottom-green");
-                console.log(this.changeNameVisible)
             }else{
-                console.log(this.changeNameVisible)
                 this.changeNameVisible=true;
                 document.querySelector(".user-name").classList.remove("border-bottom-green");
-                console.log(this.changeNameVisible)
             }
         },
         overwriteInfo(){
             if(this.changeInfoVisible===true){
-                console.log(this.changeInfoVisible)
                 this.changeInfoVisible=false;
                 document.querySelector(".user-info").classList.add("border-bottom-green");
-                console.log(this.changeInfoVisible)
             }else{
-                console.log(this.changeInfoVisible)
                 this.changeInfoVisible=true;
                 document.querySelector(".user-info").classList.remove("border-bottom-green");
-                console.log(this.changeInfoVisible)
             }
         },
         hideNotification(){

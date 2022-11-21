@@ -103,6 +103,7 @@ body{
 /* ASIDE */
 aside{
     background-color: white;
+    flex-shrink: 0;
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -194,8 +195,12 @@ aside{
 .offcanvas{
     position: absolute;
 }
+.offcanvas.offcanvas-start{
+    width: 100%;
+}
 /* offcanvas header */
 .offcanvas-header{
+    padding-top: 4.375rem;
     background-color: #008069;
     color: white;
 }
@@ -308,6 +313,10 @@ main{
 .d-none{
     display: none;
 }
+.padd li {
+    padding: .5rem;
+}
+/* messaggio di benvenuto */
 .welcome-message{
     display: flex;
     flex-direction: column;
@@ -326,9 +335,6 @@ main{
 }
 .welcome-message .text{
     max-width: 70%;
-}
-.cripto{
-    margin-top: ; 
 }
 /* input nuovo messaggio */
 .new-message{

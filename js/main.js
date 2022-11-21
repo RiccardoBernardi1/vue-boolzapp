@@ -307,7 +307,6 @@ createApp({
                 console.log(this.changeInfoVisible)
             }
         },
-     
     },
     created(){
         moment.locale("it");   

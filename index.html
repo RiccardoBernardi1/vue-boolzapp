@@ -197,7 +197,7 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)" v-if="message.status==='sent'">Cancella messaggio</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)" v-else>Cancella messaggio</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                     </div>
                     <!-- /lista messaggi -->
                     <!-- messaggio di benvenuto -->
-                    <div class="welcome-message" v-else>
+                    <div class="welcome-message" v-show="activeContact === -1">
                         <div class="welcome-image">
                             <img src="https://media.istockphoto.com/id/1161918225/vector/hand-drawn-mobile-phone-and-computer-monitor-vector-illustration.jpg?s=612x612&w=0&k=20&c=iLU36842xp7oFBA1bJBPjCKFjZX7TmcZhrmwzGfHgms=" alt="image welcome message">
                         </div>

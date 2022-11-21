@@ -315,12 +315,15 @@ createApp({
             this.inputNotFocussed=false;
         },
         closeSearch(){
+            this.searchInput="";
             this.inputNotFocussed=true;
         },
         autoScroll(){
-            const messages=document.querySelector(".messages");
-            let scrollHeight=messages.scrollHeight;
-            messages.scrollTop=scrollHeight;
+            if(this.activeContact>=0){
+                const messages=document.querySelector(".messages");
+                let scrollHeight=messages.scrollHeight;
+                messages.scrollTop=scrollHeight;
+            }
         }
     },
     created(){

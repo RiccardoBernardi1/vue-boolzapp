@@ -316,9 +316,17 @@ createApp({
         },
         closeSearch(){
             this.inputNotFocussed=true;
+        },
+        autoScroll(){
+            const messages=document.querySelector(".messages");
+            let scrollHeight=messages.scrollHeight;
+            messages.scrollTop=scrollHeight;
         }
     },
     created(){
         moment.locale("it");   
+    },
+    updated(){
+        this.autoScroll();
     }
 }).mount("#app");

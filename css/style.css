@@ -156,6 +156,10 @@ aside{
 .search input:focus{ 
     outline: none; 
 }
+.green{
+    color: green;
+    font-size: 1.125rem;
+}
 /* lista contatti */
 .contacts{
     display: flex;
@@ -356,4 +360,5 @@ main{
     flex-grow: 1;
     border-radius: .625rem;
     padding: .5rem;
+    outline: none;
 }

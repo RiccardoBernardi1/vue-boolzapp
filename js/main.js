@@ -11,6 +11,8 @@ createApp({
             changeInfoVisible : true,
             userName:"Riccardo",
             userInfo:"...",
+            dNone:"",
+            inputNotFocussed:true,
             contacts: [
                 {
                     name: 'Michele',
@@ -248,7 +250,6 @@ createApp({
                     axios.get('https://api.chucknorris.io/jokes/random')
                     .then((response)=> {
                         this.chuck=response.data.value;
-                        console.log(response.data.value)
                         const newMessaggeAnswer={
                             date: new Date,
                             message: this.chuck,
@@ -307,6 +308,15 @@ createApp({
                 console.log(this.changeInfoVisible)
             }
         },
+        hideNotification(){
+            this.dNone="d-none";
+        },
+        showArrow(){
+            this.inputNotFocussed=false;
+        },
+        closeSearch(){
+            this.inputNotFocussed=true;
+        }
     },
     created(){
         moment.locale("it");   

@@ -75,7 +75,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-width: 20%;
+    width: 5.625rem;
     color: #B1B1B1;
 }
 /* parte destra header */
@@ -93,7 +93,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-width: 10%;
+    width: 5.625rem;
     color: #B1B1B1;
 }
 .last{
@@ -116,6 +116,7 @@ aside{
     display: flex;
     padding: .625rem;
     align-items: center;
+    justify-content: space-around;
 }
 .bell{
     font-size: 1.25rem;

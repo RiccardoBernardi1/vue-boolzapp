@@ -41,7 +41,7 @@
                     </div>
                     <!-- /parte sinistra header -->
                     <!-- attiva notifiche -->
-                    <div class="notifications">
+                    <div class="notifications" :class="dNone">
                         <div class="bell">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
@@ -49,14 +49,16 @@
                             <div>Ricevi notifiche di nuovi messaggi</div>
                             <a href="#">Attiva notifiche desktop</a>
                         </div>
+                        <i class="fa-solid fa-xmark" @click="hideNotification"></i>
                     </div>
                     <!-- /attiva notifiche -->
                     <!-- cerca contatto -->
                     <div class="search">
                         <div class="search-icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass" v-if="inputNotFocussed"></i>
+                            <i class="fa-solid fa-arrow-left" v-else @click="closeSearch"></i>
                         </div>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchInput" @keyup="searchContact">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchInput" @keyup="searchContact" @click="showArrow">
                     </div>
                     <!-- /cerca contatto -->
                     <!-- lista contatti -->

@@ -19,49 +19,29 @@
 <body>
     <div id="app">
         <div class="container">
-            <header>
-                <!-- parte sinistra header -->
-                <div class="header-aside">
-                    <!-- immagine e nome utente -->
-                    <div class="user">
-                        <img src="img/avatar_2.jpg" class="avatar-image" alt="user image">
-                        <span class="name">Riccardo</span>
-                    </div>
-                    <!-- /immagine e nome utente -->
-                    <!-- icone parte sinistra header -->
-                    <div class="header-left-icons">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                    <!-- /icone parte sinistra header -->
-                </div>
-                <!-- /parte sinistra header -->
-                <!-- parte destra header -->
-                <div class="header-right">
-                    <!-- immagine, nome e ultimo accesso contatto visualizzato -->
-                    <div class="header-contact">
-                        <img class="avatar-image" :src="`img/avatar${contacts[activeContact].avatar}.jpg`" alt="user image">
-                        <div class="text">
-                            <div class="name">{{contacts[activeContact].name}}</div>
-                            <div class="last">Ultimo accesso {{getDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}</div>
-                        </div>
-                    </div>
-                    <!-- /immagine, nome e ultimo accesso contatto visualizzato -->
-                    <!-- icone parte destra header -->
-                    <div class="header-right-icons">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                    <!-- /icone parte destra header -->
-                </div>
-                <!-- /parte destra header -->
-            </header>
             <div class="container-main-aside">
                 <aside>
+                    <!-- parte sinistra header -->
+                    <div class="header-aside">
+                        <!-- immagine e nome utente -->
+                        <div class="user">
+                            <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                <img src="img/avatar_2.jpg" class="avatar-image" alt="user image">
+                            </a>
+                            <span class="name">{{userName}}</span>
+                        </div>
+                        <!-- /immagine e nome utente -->
+                        <!-- icone parte sinistra header -->
+                        <div class="header-left-icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                        <!-- /icone parte sinistra header -->
+                    </div>
+                    <!-- /parte sinistra header -->
                     <!-- attiva notifiche -->
-                    <div class="notification h-80">
+                    <div class="notifications">
                         <div class="bell">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
@@ -95,10 +75,66 @@
                         </div>
                     </div>
                     <!-- /lista contatti -->
+                    <!-- offcanvas profilo -->
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profilo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="profile-image">
+                                <img src="img/avatar_2.jpg" alt="user image">
+                            </div>
+                            <div class="change-name">
+                                <h6>Il tuo nome</h6>
+                                <div class="user-name">
+                                    <span v-if="changeNameVisible">{{userName}}</span>
+                                    <input type="text" v-else v-model="userName">
+                                    <div class="btn-overwrite" @click="overwriteName">
+                                        <i class="fa-solid fa-pencil" v-if="changeNameVisible"></i>
+                                        <i class="fa-solid fa-check" v-else ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span>Questo non è il tuo nome utente o PIN. Questo nome verrà visualizzato dai tuoi contatti WhatsApp. </span>
+                            <div class="change-info">
+                                <h6>Info</h6>
+                                <div class="user-info">
+                                    <span v-if="changeInfoVisible">{{userInfo}}</span>
+                                    <input type="text" v-else v-model="userInfo">
+                                    <div class="btn-overwrite" @click="overwriteInfo">
+                                        <i class="fa-solid fa-pencil" v-if="changeInfoVisible"></i>
+                                        <i class="fa-solid fa-check" v-else></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- offcanvas profilo -->
                 </aside>
                 <main>
+                    <!-- parte destra header -->
+                    <div class="header-right" v-if="activeContact>=0">
+                        <!-- immagine, nome e ultimo accesso contatto visualizzato -->
+                        <div class="header-contact">
+                            <img class="avatar-image" :src="`img/avatar${contacts[activeContact].avatar}.jpg`" alt="user image">
+                            <div class="text">
+                                <div class="name">{{contacts[activeContact].name}}</div>
+                                <div class="last">Ultimo accesso {{getDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}</div>
+                            </div>
+                        </div>
+                        <!-- /immagine, nome e ultimo accesso contatto visualizzato -->
+                        <!-- icone parte destra header -->
+                        <div class="header-right-icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                        <!-- /icone parte destra header -->
+                    </div>
+                    <!-- /parte destra header -->
                     <!-- lista messaggi -->
-                    <div class="messages">
+                    <div class="messages" v-if="activeContact >= 0">
                         <div class="messages-container">
                             <div class="message-container" v-for="(message,index) in contacts[activeContact].messages">
                                 <div class="message" :class="message.status" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,8 +149,23 @@
                         </div>
                     </div>
                     <!-- /lista messaggi -->
+                    <!-- messaggio di benvenuto -->
+                    <div class="welcome-message" v-else>
+                        <div class="welcome-image">
+                            <img src="https://media.istockphoto.com/id/1161918225/vector/hand-drawn-mobile-phone-and-computer-monitor-vector-illustration.jpg?s=612x612&w=0&k=20&c=iLU36842xp7oFBA1bJBPjCKFjZX7TmcZhrmwzGfHgms=" alt="image welcome message">
+                        </div>
+                        <div class="text">
+                            <h2>BoolzApp Web</h2>
+                            <div>Invia e ricevi messaggi senza mantenere il telefono connesso a Internet.Usa BoolzApp su un massimo di 4 dispositivi collegati e 1 telefono contemporaneamente.</div>
+                        </div>
+                        <div class="cripto">
+                            <i class="fa-solid fa-lock"></i> 
+                            Con crittografia end to end 
+                        </div>
+                    </div>
+                    <!-- /messaggio di benvenuto -->
                     <!-- input nuovo messaggio -->
-                    <div class="new-message">
+                    <div class="new-message" v-if="activeContact>=0">
                         <div class="emoji">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>

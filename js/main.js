@@ -3,10 +3,14 @@ const {createApp}=Vue;
 createApp({
     data(){
         return{
-            activeContact:0,
+            activeContact:-1,
             newMessage:"",
             searchInput:"",
             chuck:"",
+            changeNameVisible :true,
+            changeInfoVisible : true,
+            userName:"Riccardo",
+            userInfo:"...",
             contacts: [
                 {
                     name: 'Michele',
@@ -276,7 +280,34 @@ createApp({
         },
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min) ) + min;
-        }
+        },
+        overwriteName(){
+            if(this.changeNameVisible===true){
+                console.log(this.changeNameVisible)
+                this.changeNameVisible=false;
+                document.querySelector(".user-name").classList.add("border-bottom-green");
+                console.log(this.changeNameVisible)
+            }else{
+                console.log(this.changeNameVisible)
+                this.changeNameVisible=true;
+                document.querySelector(".user-name").classList.remove("border-bottom-green");
+                console.log(this.changeNameVisible)
+            }
+        },
+        overwriteInfo(){
+            if(this.changeInfoVisible===true){
+                console.log(this.changeInfoVisible)
+                this.changeInfoVisible=false;
+                document.querySelector(".user-info").classList.add("border-bottom-green");
+                console.log(this.changeInfoVisible)
+            }else{
+                console.log(this.changeInfoVisible)
+                this.changeInfoVisible=true;
+                document.querySelector(".user-info").classList.remove("border-bottom-green");
+                console.log(this.changeInfoVisible)
+            }
+        },
+     
     },
     created(){
         moment.locale("it");   

@@ -16,7 +16,7 @@
 }
 .container-main-aside{
     display: flex;
-    height: calc(95vh - 3.875rem);
+    height: calc(95vh);
 }
 .h-80{
     min-height: 5rem;
@@ -58,17 +58,14 @@ body{
     align-items: center;
 }
 /* HEADER */
-header{
-    background-color: #EAEAEA;
-    display: flex;
-}
 /* parte sinistra header */
 .header-aside{
     display: flex;
     justify-content: space-between;
-    width: 35%;
     border-right: .125rem solid #D1D7DB;
     padding: .625rem;
+    background-color: #EAEAEA;
+    max-height: 4.375rem;
 }
 .user{
     display: flex;
@@ -86,7 +83,7 @@ header{
     display: flex;
     justify-content: space-between;
     padding: .625rem;
-    width: 65%;
+    background-color: #EAEAEA;
 }
 .header-contact{
     display: flex;
@@ -110,9 +107,10 @@ aside{
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
+    position: relative;
 }
 /* attiva notifiche */
-.notification{
+.notifications{
     background-color: #8EDAFC;
     display: flex;
     padding: .625rem;
@@ -192,6 +190,61 @@ aside{
     word-wrap: break-word;
     max-width: 21.875rem;
 }
+/* offcanvas */
+.offcanvas{
+    position: absolute;
+}
+/* offcanvas header */
+.offcanvas-header{
+    background-color: #008069;
+    color: white;
+}
+/* offcanvas body */
+.profile-image{
+    width: 12.5rem;
+    height: 12.5rem;
+    align-self: center;
+    margin: 1rem 0;
+}
+.profile-image img{
+    max-width: 100%;
+    border-radius: 100%;
+}
+.offcanvas-body{
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F2F5;
+}
+.change-name, .change-info{
+    padding: 1rem;
+    background-color: white;
+}
+.change-name h6{
+    color: #008069;
+}
+.offcanvas-body>span{
+    padding: 1rem ;
+    color: #B1B1B1;
+    font-size: .875rem;
+
+}
+.user-name, .user-info{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-overwrite{
+    cursor: pointer;
+}
+.border-bottom-green{
+    border-bottom: 3px solid #008069;
+}
+.user-info input, .user-name input{
+    border: none;
+    flex-grow: 1;
+}
+.user-info input:focus, .user-name input:focus{
+    outline: none; 
+}
 /* MAIN */
 main{
     flex-grow: 1;
@@ -254,6 +307,28 @@ main{
 }
 .d-none{
     display: none;
+}
+.welcome-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-image: radial-gradient(white 35%, #008069 120%);
+    text-align: center;
+    justify-content: space-around;
+}
+.welcome-image{
+    max-width: 40%;
+    margin-top: 35%;
+}
+.welcome-image img{
+    max-width: 100%;
+}
+.welcome-message .text{
+    max-width: 70%;
+}
+.cripto{
+    margin-top: ; 
 }
 /* input nuovo messaggio */
 .new-message{

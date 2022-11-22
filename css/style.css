@@ -78,6 +78,9 @@ body{
     width: 5.625rem;
     color: #B1B1B1;
 }
+.user a{
+    padding: 0 5px;
+}
 /* parte destra header */
 .header-right{
     display: flex;
@@ -116,18 +119,27 @@ aside{
     display: flex;
     padding: .625rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .bell{
-    font-size: 1.25rem;
+    font-size: 1.5625rem;
     border-radius: 100%;
     background-color: white;
     color: #8EDAFC;
+    width: 3.75rem;
+    height: 3.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: .5rem;
-    padding: .75rem;
 }
-.notification a{
+.notifications a{
     color: black;
+}
+.bell-text{
+    display: flex;
+    align-items: center;
+    width:90%;
 }
 /* cerca contatto */
 .search{

@@ -42,12 +42,14 @@
                     <!-- /parte sinistra header -->
                     <!-- attiva notifiche -->
                     <div class="notifications" :class="dNone">
-                        <div class="bell">
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-                        <div class="notification-text">
-                            <div>Ricevi notifiche di nuovi messaggi</div>
-                            <a href="#">Attiva notifiche desktop</a>
+                        <div class="bell-text">
+                            <div class="bell">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div class="notification-text">
+                                <div>Ricevi notifiche di nuovi messaggi</div>
+                                <a href="#">Attiva notifiche desktop</a>
+                            </div>
                         </div>
                         <i class="fa-solid fa-xmark" @click="hideNotification"></i>
                     </div>

@@ -202,7 +202,8 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 }
-                this.contacts[this.activeContact].messages.push(newObjMessage);
+                const interlocutor=this.contacts[this.activeContact]
+                interlocutor.messages.push(newObjMessage);
                 this.newMessage="";
                 setTimeout(()=>{
                     axios.get('https://api.chucknorris.io/jokes/random')
@@ -213,7 +214,7 @@ createApp({
                             message: this.chuck,
                             status: 'received'
                         }
-                        this.contacts[this.activeContact].messages.push(newMessaggeAnswer);
+                        interlocutor.messages.push(newMessaggeAnswer);
                     });
                 },1000);
             } 

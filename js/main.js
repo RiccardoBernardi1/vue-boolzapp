@@ -247,7 +247,8 @@ createApp({
     methods:{
         changeActiveContact(i){
             this.activeContact=i;
-            document.getElementById(i).classList.add("d-none")
+            document.getElementById(i).classList.add("d-none");
+            this.unreadContacts[i].splice(0);
         },
         addNewMessage(){
             if(this.newMessage.length>0){
@@ -350,7 +351,7 @@ createApp({
                     alertNew.innerHTML=this.unreadContacts[target].length;
                 }
             });
-        }, 10000);
+        }, 30000);
     },
     updated(){
         this.autoScroll();

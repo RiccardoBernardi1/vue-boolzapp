@@ -74,6 +74,7 @@
                                         <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
                                     </div>
                                     <div v-else class="last">Nessun messaggio nella chat</div>
+                                    <div class="alert-new d-none" :id="index">1</div>
                                 </div>
                             </div>
                             <div class="last" v-if="contact.messages.length>0">{{getDate(contact.messages[contact.messages.length-1].date)}}</div>

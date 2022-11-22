@@ -173,6 +173,8 @@ aside{
     width: 100%;
     cursor: pointer;
     position: relative;
+    overflow-y: hidden;
+    height: 7.5rem;
 }
 .contact:hover{
     background-color: #E9EBEB;
@@ -195,9 +197,27 @@ aside{
     top: .5rem;
     right: .5rem;
 }
+.last-message-text{
+    padding-right: 1rem;
+}
 .last-message{
     word-wrap: break-word;
     max-width: 21.875rem;
+}
+.alert-new{
+    background-color: #25D366;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+    font-size: .875rem;
+    position: absolute;
+    top: 50%;
+    right: .3125rem;
+    transform: translateY(50%);
 }
 /* offcanvas */
 .offcanvas{

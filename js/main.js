@@ -14,6 +14,16 @@ createApp({
             dNone:"",
             inputNotFocussed:true,
             deleted:false,
+            unreadContacts:[
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+            ],
             contacts: [
                 {
                     name: 'Michele',
@@ -237,6 +247,7 @@ createApp({
     methods:{
         changeActiveContact(i){
             this.activeContact=i;
+            document.getElementById(i).classList.add("d-none")
         },
         addNewMessage(){
             if(this.newMessage.length>0){
@@ -319,6 +330,27 @@ createApp({
     },
     created(){
         moment.locale("it");   
+    },
+    mounted(){
+        setInterval(()=>{
+            const target= this.getRndInteger(0, this.contacts.length);
+            const alertNew=document.getElementById(target);
+            axios.get('https://api.chucknorris.io/jokes/random')
+            .then((response)=> {
+                this.chuck=response.data.value;
+                const newMessaggeAnswer={
+                    date: new Date,
+                    message: this.chuck,
+                    status: 'received'
+                }
+                this.contacts[target].messages.push(newMessaggeAnswer);
+                if(target!=this.activeContact){
+                    alertNew.classList.remove("d-none");
+                    this.unreadContacts[target].push(newMessaggeAnswer);
+                    alertNew.innerHTML=this.unreadContacts[target].length;
+                }
+            });
+        }, 10000);
     },
     updated(){
         this.autoScroll();

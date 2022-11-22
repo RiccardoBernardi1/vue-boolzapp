@@ -235,6 +235,7 @@ createApp({
         },
         deleteMessage(i){
             this.contacts[this.activeContact].messages.splice(i,1);
+            console.log(this.contacts[this.activeContact].messages)
         },
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min) ) + min;
@@ -286,7 +287,7 @@ createApp({
             .then((response)=> {
                 this.chuck=response.data.value;
                 const newMessaggeAnswer={
-                    date: new Date,
+                    date: new Date(),
                     message: this.chuck,
                     status: 'received'
                 }

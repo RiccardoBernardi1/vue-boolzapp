@@ -331,7 +331,7 @@ main{
 .message div{
     word-wrap: break-word;
 }
-.message span{
+.message>span{
     position: absolute;
     right: .625rem;
     bottom: .3125rem;
@@ -362,7 +362,7 @@ main{
 .d-none{
     display: none;
 }
-.padd li {
+.padd li{
     padding: .5rem;
 }
 /* messaggio di benvenuto */

@@ -148,57 +148,28 @@
                                 <div class="message" :class="message.status" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div>{{message.message}}</div>
                                     <span class="last">{{getDate(message.date)}}</span>
-                                    <ul class="dropdown-menu dropdown-menu-end" v-if="message.status==='sent'">
+                                    <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
                                             <div class="dropstart">
                                                 <a class="dropdown-item" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
                                                 <ul class="dropdown-menu padd">
                                                     <li>
                                                         <h5>Data e ora :</h5>
-                                                        {{message.date}}
+                                                        <span>{{message.date.toLocaleString('IT', { timeZone: 'UTC' })}}</span>
                                                     </li>
                                                     <hr>
                                                     <li>
                                                         <h5>Contenuto :</h5>
-                                                        {{message.message}}
+                                                        <span>{{message.message}}</span>
                                                     </li>
                                                     <hr>
-                                                    <li v-if="message.status==='sent'">
+                                                    <li v-if="message.status===sent">
                                                         <h5>Autore :</h5>
-                                                        Tu
+                                                        <span>Tu</span> 
                                                     </li>
-                                                    <hr>
-                                                    <li>
+                                                    <li v-else>
                                                         <h5>Autore :</h5>
-                                                        {{contacts[activeContact].name}}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMessage(index)">Cancella messaggio</a></li>
-                                    </ul>
-                                    <ul class="dropdown-menu dropdown-menu-start" v-else>
-                                        <li>
-                                            <div class="dropend">
-                                                <a class="dropdown-item" href="#" data-bs-toggle="dropdown" aria-expanded="false">Info messaggio</a>
-                                                <ul class="dropdown-menu padd">
-                                                    <li>
-                                                        <h5>Data e ora :</h5>
-                                                        {{message.date}}
-                                                    </li>
-                                                    <hr>
-                                                    <li>
-                                                        <h5>Contenuto :</h5>
-                                                        {{message.message}}
-                                                    </li>
-                                                    <hr>
-                                                    <li v-if="message.status==='sent'">
-                                                        <h5>Autore :</h5>
-                                                        Tu
-                                                    </li>
-                                                    <li>
-                                                        <h5>Autore :</h5>
-                                                        {{contacts[activeContact].name}}
+                                                        <span>{{contacts[activeContact].name}}</span> 
                                                     </li>
                                                 </ul>
                                             </div>

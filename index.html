@@ -71,9 +71,8 @@
                                 <div>
                                     <div class="name">{{contact.name}}</div>
                                     <div class="last-message-text" v-if="contact.messages.length>0">
-                                        <span class="last" v-if="contact.messages[contact.messages.length-1].status==='sent'">Ultimo messaggio inviato:</span>
-                                        <span class="last" v-else>Ultimo messaggio ricevuto:</span>
-                                        <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
+                                        <span class="light-blue" v-if="contact.messages[contact.messages.length-1].status==='sent'"><i class="fa-solid fa-check-double"></i></span>
+                                        <span class="last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                     <div v-else class="last">Nessun messaggio nella chat</div>
                                     <div class="alert-new d-none" :id="index">1</div>
@@ -104,7 +103,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span>Questo non è il tuo nome utente o PIN. Questo nome verrà visualizzato dai tuoi contatti WhatsApp. </span>
+                            <span>Questo non è il tuo nome utente o PIN. Questo nome verrà visualizzato dai tuoi contatti boolzApp. </span>
                             <div class="change-info">
                                 <h6>Info</h6>
                                 <div class="user-info">

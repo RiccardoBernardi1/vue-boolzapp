@@ -186,7 +186,7 @@ aside{
     cursor: pointer;
     position: relative;
     overflow-y: hidden;
-    height: 7.5rem;
+    max-height: 5rem;
 }
 .contact:hover{
     background-color: #E9EBEB;
@@ -196,6 +196,7 @@ aside{
 }
 .contact-info{
     display: flex;
+    max-height: 100%;
 }
 .contact img{
     height: 3.75rem;
@@ -206,11 +207,14 @@ aside{
 }
 .contact>.last{
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: .625rem;
+    right: .625rem;
+
 }
 .last-message-text{
     padding-right: 1rem;
+    display: flex;
+    margin-top: 1rem;
 }
 .last-message{
     word-wrap: break-word;
@@ -230,6 +234,10 @@ aside{
     top: 50%;
     right: .3125rem;
     transform: translateY(50%);
+}
+.light-blue{
+    color: #53BDEB;
+    padding-right: .5rem;
 }
 /* offcanvas */
 .offcanvas{
